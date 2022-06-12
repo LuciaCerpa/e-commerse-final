@@ -1,38 +1,127 @@
-.App {
+body {
   text-align: center;
+  background-image: url(https://www.kionetworks.com/hubfs/1-2.jpeg);  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.loginContainer{
+  max-width: 19rem;
+  padding-top: 5rem;    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login input{
+  color: rgb(207, 207, 12);
+  background-color: rgba(128, 128, 128, 0.598);
+  border-top: none;    
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.text {
+  color: rgb(169, 169, 45);
+}
+
+
+.img{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  text-align: center;  
+  height: 100%;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.img img{
+  object-fit: contain;
+  width: 200px;
+  height: 200px;  
+  margin-top: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.productDetailContainer h2{  
+  margin-top: 7rem;
+}
+
+
+.productDetailContainer img{
+  object-fit: contain;
+  height: 50%;
+  width: 50%;  
+}
+
+.productDetailContainer input{
+  margin-left: 5rem;
+  background-color: rgb(213, 221, 228);
+  color: brown;
+  width: 100px;
+  border-radius: .5rem;
+  margin-bottom: 2rem;
+}
+
+.productDetailButton{
+  width: 100%; 
+  margin-top: 1rem;  
+}
+
+.relatedProducts{
+  margin-top: 7rem;  
+}
+
+.productDetailContainer p{
+  margin-top: 1rem;
+  color: rgb(238, 238, 209);
+}
+
+.productDetailContainer li{
+  list-style: none;
+  cursor: pointer;
+  color: rgb(203, 222, 238);    
+}
+
+.productDetailContainer li:hover{
+  color: rgb(22, 47, 242);
+}
+
+.purchasesContainer{
+  border: 1px solid rgb(36, 131, 247);
+  margin: 2rem;  
+  color: rgb(217, 223, 229);
+  background-color: rgba(0, 0, 255, 0.104);
+}
+
+.purchasesContainer li{
+  list-style: none;
+  background-color: rgba(0, 255, 255, 0.122);
+  color: rgb(59, 59, 232);
+}
+
+.purchaseDate{
+  margin: 1rem;
+  border: 1px solid;
+  padding: 1rem;
+}
+
+.purchaseDateBottom{
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-evenly;  
+}
+
+.purchaseDateBottom h6{
+  border: 0.5px solid;
+  width: 30px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.purchaseDate span{
+  background-color: rgba(165, 42, 42, 0.641);
+  font-weight: bold;
+}
+
+.purchaseDate h4{
+  cursor: pointer;
+}
+
+.purchaseDate h4:hover{
+  color: rgb(145, 171, 242);
 }
