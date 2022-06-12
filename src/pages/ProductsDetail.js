@@ -44,22 +44,25 @@ const ProductsDetail = () => {
                 <Col>
                     <h2>{products?.title}</h2>
                     <img src={products?.productImgs?.[0]} alt="" />
+
                     <input
                         type="number"
                         placeholder='quantity'
                         onChange={e => setQuantity(e.target.value)}
                         value={quantity}
+
                     />
+                    <h3>price: $ {products?.price}</h3>
                     <Button onClick={addPurchase} className="productDetailButton">Add to Cart</Button>
                     <p>{products.description}</p>
-                </Col>                
+                </Col>
                 <Col lg={3} >
                     <ListGroup variant="flush" className='relatedProducts'>
                         <h3>Related products</h3>
                         {
                             productsList.map(product => (
 
-                                <li onClick={() => navigate(`/products/${product.id}`)} key={product.id} >{product.title}
+                                <li style={{ padding: ".5rem 1rem" }} onClick={() => navigate(`/products/${product.id}`)} key={product.id} >{product.title}
 
                                 </li>
                             ))

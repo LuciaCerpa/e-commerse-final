@@ -21,24 +21,24 @@ const NavBar = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => {
         const token = localStorage.getItem("token");
-        if(token){
-            setShow(true);            
-        }else{
+        if (token) {
+            setShow(true);
+        } else {
             navigate("/login")
         }
     }
 
-     useEffect (() => {
-         dispatch(getCart())
-     },[dispatch])
+    useEffect(() => {
+        dispatch(getCart())
+    }, [dispatch])
 
 
 
     return (
         <div>
-            <Navbar bg="dark" variant="dark" style={{position:"fixed", zIndex:"1"}}>
+            <Navbar bg="dark" variant="dark" style={{ position: "fixed", zIndex: "1" }}>
                 <Container >
-                    <Navbar.Brand  href="/#/" >e-commerse</Navbar.Brand>
+                    <Navbar.Brand href="/#/" >e-commerse</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto" >
@@ -50,7 +50,7 @@ const NavBar = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <SideBar show={show} handleClose={handleClose}/>            
+            <SideBar show={show} handleClose={handleClose} />
         </div>
     );
 };

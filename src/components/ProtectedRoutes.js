@@ -4,10 +4,10 @@ const ProtectedRoutes = () => {
 
     const token = localStorage.getItem("token")
 
-    if(token){
+    if (token) {
         return <Outlet />
-    } else { 
+    } else {
         return <Navigate to='/login' />
-    } 
+    }
 }
 export default ProtectedRoutes;

@@ -1,9 +1,9 @@
-import {Home, Purchases, Login, ProductsDetail} from './pages'
+import { Home, Purchases, Login, ProductsDetail } from './pages'
 import './App.css';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import {LoadingScreen, NavBar, ProtectedRoutes} from './components';
-import {useSelector} from 'react-redux';
+import { LoadingScreen, NavBar, ProtectedRoutes, Footer } from './components';
+import { useSelector } from 'react-redux';
 
 function App() {
 
@@ -11,20 +11,20 @@ function App() {
 
   return (
     <HashRouter>
-      <NavBar/>
+      <NavBar />
       <Container>
-        {isLoading && <LoadingScreen/>}
-        <LoadingScreen/>
+        {isLoading && <LoadingScreen />}
         <Routes>
-          <Route path ="/" element={<Home/>}/>
-          <Route path ="/products/:id" element={<ProductsDetail/>}/>
-          <Route path ="/login" element={<Login/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:id" element={<ProductsDetail />} />
+          <Route path="/login" element={<Login />} />
 
-          <Route element={<ProtectedRoutes/>}>
-              <Route path="/purchases" element={<Purchases/>}/>
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/purchases" element={<Purchases />} />
           </Route>
         </Routes>
       </Container>
+      <Footer />
     </HashRouter>
   );
 }

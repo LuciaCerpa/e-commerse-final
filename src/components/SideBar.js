@@ -1,12 +1,12 @@
-import React from 'react';
-import { Offcanvas, ListGroup, Button, ListGroupItem } from 'react-bootstrap';
-import { useSelector }  from 'react-redux';
+import React, { useState } from 'react';
+import { Offcanvas, ListGroup, Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import getConfig from '../utils/getConfig';
-import { getPurchases } from './../store/slices/purchases.slice';
-import { getCart } from './../store/slices/cart.slice';
 import { useDispatch } from 'react-redux';
+import { getPurchases } from '../store/slices/purchases.slice';
+import { getCart } from '../store/slices/cart.slice';
+
 
 const SideBar = ({ show, handleClose }) => {
 
@@ -24,20 +24,10 @@ const SideBar = ({ show, handleClose }) => {
     useEffect(() => {
         dispatch(getPurchases());
         dispatch(getCart())
-        dispatch(getPurchases())
-    }, [dispatch])
-    console.log(purchases)
 
-    // useEffect(()=>{
-    //     axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/purchases', {}, getConfig())
-    //         .then(()=>{
-    //             dispatch(setCart([]))
-    //             dispatch(getPurchases())
-    //         })
-    // })
-    
-console.log(purchases)
-console.log(purchases[0])
+    }, [dispatch])
+
+
     return (
         <div>
             <Offcanvas show={show} onHide={handleClose}>
@@ -48,19 +38,22 @@ console.log(purchases[0])
                     <ListGroup variant="flush">
                         {
                             purchases.map(purchase => (
-                                <ListGroup.Item>{purchase.cart.products.map(product=>(
-                                    <ListGroup.Item onClick={()=>selectProduct(product)}>{product.title}
-                                    <p>Quantity: {product.productsInCart.quantity}</p></ListGroup.Item>
+                                <ListGroup.Item key={purchase.id}>{purchase.cart.products.map(product => (
+                                    <ListGroup.Item onClick={() => selectProduct(product)}>{product.title}
+                                        <p>Quantity: {product.productsInCart.quantity}</p></ListGroup.Item>
                                 ))}</ListGroup.Item>
 
                             ))
                         }
+
                     </ListGroup>
 
-                        <Button onClick={()=>dispatch()}>Check out</Button>
+
 
                 </Offcanvas.Body>
+                <Button>Check out</Button>
             </Offcanvas>
+
         </div>
     );
 };

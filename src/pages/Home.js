@@ -25,7 +25,7 @@ const Home = () => {
       .then(res => setCategories(res.data.data.categories))
   }, [dispatch])
 
-  console.log(categories)
+
 
   const filterProducts = () => {
     dispatch(filterProductQuery(search))
@@ -38,28 +38,27 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home</h1>
-      <Row className="g-4">
-        <Col lg={3} className="mb-4 mt-5">
+      <h1></h1>
+      <Row className="g-4" >
+        <h1 style={{ marginTop: "5rem" }}>Home</h1>
+        <Col lg={3} className="mb-4 mt-5"  >
           <h4>Categories</h4>
           <ListGroup>
             {
               categories.map(category => (
-                <ListGroup.Item style={{ cursor: 'pointer', border: "1px solid rgba(255, 255, 0, 0.5)", backgroundColor: "rgba(0, 0, 0, 0.3)"}} key={category.id} onClick={() => selectCategory(category.id)}>{category.name}</ListGroup.Item>
+                <ListGroup.Item style={{ cursor: 'pointer', border: "1px solid rgba(255, 255, 0, 0.5)", backgroundColor: "rgba(0, 0, 0, 0.3)" }} key={category.id} onClick={() => selectCategory(category.id)}>{category.name}</ListGroup.Item>
               ))
             }
           </ListGroup>
         </Col>
         <Col>
           <InputGroup className="mb-5 mt-5">
-            <FormControl
+            <FormControl style={{ backgroundColor: "rgb(182, 190, 197)", borderTop: "none", borderRadius: "1rem" }}
               placeholder="Search product"
-              aria-label="Recipient's username"
-              aria-describedby="basic-addon2"
               onChange={e => setSearch(e.target.value)}
               value={search}
             />
-            <Button variant="outline-secondary" id="button-addon2" onClick={filterProducts}>
+            <Button variant="outline-secondary" id="button-addon2" onClick={filterProducts} style={{ marginLeft: "5px", color: "yellow", border: "none", zIndex: "-1" }}>
               Search
             </Button>
           </InputGroup>
@@ -67,11 +66,11 @@ const Home = () => {
           <Row xs={1} md={2} lg={3} className="g-4">
             {
               products.map(product => (
-                <Col className='col'>
-                  <Card className='img' onClick={() => navigate(`/products/${product.id}`)}>
+                <Col className='col' key={product.id}>
+                  <Card style={{ cursor: 'pointer', border: "1px solid rgba(255, 255, 0, 0.5)", backgroundColor: "rgba(0, 0, 0, 0.7)" }} className='img' onClick={() => navigate(`/products/${product.id}`)} >
                     <img src={product.productImgs[0]} />
                     <Card.Body>
-                      <Card.Title><h4>{product.title}</h4></Card.Title>                      
+                      <Card.Title><h5>{product.title}</h5></Card.Title>
                     </Card.Body>
                   </Card>
                 </Col>
